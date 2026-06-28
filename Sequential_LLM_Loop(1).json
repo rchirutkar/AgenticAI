@@ -1,0 +1,416 @@
+{
+  "name": "Sequential_LLM_Loop",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -656,
+        208
+      ],
+      "id": "bc310ef1-2c74-4eb8-9034-64138148b1f7",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg",
+          "mode": "list",
+          "cachedResultName": "banking_queries_labels",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1872513959,
+          "mode": "list",
+          "cachedResultName": "test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg/edit#gid=1872513959"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        -464,
+        208
+      ],
+      "id": "3bc973bb-34d6-4412-9b7f-e6440e14fe16",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "8O13BRpnuFKd6XdP",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "modelId": {
+          "__rl": true,
+          "mode": "list",
+          "value": "models/gemini-3-flash-preview"
+        },
+        "messages": {
+          "values": [
+            {
+              "content": "=Read the incoming customer query:  {{ $json['User Query'] }} and classify it into one of the following:\n\n- card_arrival\n- card_linking\n- card_payment_wrong_exchange_rate\n- exchange_rate\n- extra_charge_on_statement\n- pending_cash_withdrawal\n\nOutput the category name only, as given in the list above. No explanation or preface needed. Return the final answer as a single, continuous paragraph of plain text. Do NOT use bullet points, do NOT use numbered lists, do NOT use markdown line breaks (\\n), and do NOT wrap the output in JSON. Output raw text only."
+            }
+          ]
+        },
+        "builtInTools": {},
+        "options": {
+          "systemMessage": ""
+        }
+      },
+      "type": "@n8n/n8n-nodes-langchain.googleGemini",
+      "typeVersion": 1.2,
+      "position": [
+        16,
+        224
+      ],
+      "id": "092dfa60-2869-48ec-867f-97619a9aa05b",
+      "name": "Message a model",
+      "credentials": {
+        "googlePalmApi": {
+          "id": "eKjnRi1lYTG18kAe",
+          "name": "Google Gemini(PaLM) Api Demo"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "documentId": {
+          "__rl": true,
+          "value": "1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg",
+          "mode": "list",
+          "cachedResultName": "banking_queries_labels",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1872513959,
+          "mode": "list",
+          "cachedResultName": "test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg/edit#gid=1872513959"
+        },
+        "columns": {
+          "mappingMode": "defineBelow",
+          "value": {
+            "ID": "={{ $('Loop Over Items').item.json.ID }}",
+            "Output Value": "={{ $json.content.parts[0].text.replace(/['’]/g, \"\").replace(/\"/g, \"\") }}"
+          },
+          "matchingColumns": [
+            "ID"
+          ],
+          "schema": [
+            {
+              "id": "ID",
+              "displayName": "ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": false
+            },
+            {
+              "id": "User Query",
+              "displayName": "User Query",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Label ID",
+              "displayName": "Label ID",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Label String",
+              "displayName": "Label String",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Output Value",
+              "displayName": "Output Value",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true
+            },
+            {
+              "id": "Correct?",
+              "displayName": "Correct?",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "Accuracy",
+              "displayName": "Accuracy",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "string",
+              "canBeUsedToMatch": true,
+              "removed": true
+            },
+            {
+              "id": "row_number",
+              "displayName": "row_number",
+              "required": false,
+              "defaultMatch": false,
+              "display": true,
+              "type": "number",
+              "canBeUsedToMatch": true,
+              "readOnly": true,
+              "removed": true
+            }
+          ],
+          "attemptToConvertTypes": false,
+          "convertFieldsToString": false
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        432,
+        224
+      ],
+      "id": "3d3bd805-ba0b-4ae8-967d-7495a3e9175c",
+      "name": "Update row in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gGcDKG7g6kKEZsWy",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "batchSize": 50,
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -240,
+        208
+      ],
+      "id": "b11d7d01-868e-4625-88cf-ab6fa2b0dc3d",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "31a5db0e-d6a1-4bbf-a673-c05e004cde48",
+      "name": "Limit"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg",
+          "mode": "list",
+          "cachedResultName": "banking_queries_labels",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": 1872513959,
+          "mode": "list",
+          "cachedResultName": "test",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg/edit#gid=1872513959"
+        },
+        "options": {
+          "returnFirstMatch": false
+        }
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.7,
+      "position": [
+        208,
+        0
+      ],
+      "id": "22739c6f-ca6d-4b23-b933-345bec4d79fc",
+      "name": "Get row(s) in sheet1",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "gGcDKG7g6kKEZsWy",
+          "name": "Google Sheets OAuth2 API"
+        }
+      }
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.limit",
+      "typeVersion": 1,
+      "position": [
+        368,
+        0
+      ],
+      "id": "5d67de82-97c6-4ca7-9a9c-116e02f360f2",
+      "name": "Limit1"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "7d0473a0-1169-46b8-9275-acf604ecc7fa",
+              "name": "Accuracy",
+              "value": "={{ $json.Accuracy }}",
+              "type": "number"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        576,
+        0
+      ],
+      "id": "edb64683-8e43-49e9-96fa-bc1cf9e87fbf",
+      "name": "Edit Fields"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Message a model": {
+      "main": [
+        [
+          {
+            "node": "Update row in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Update row in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Limit",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Message a model",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet1": {
+      "main": [
+        [
+          {
+            "node": "Limit1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Limit1": {
+      "main": [
+        [
+          {
+            "node": "Edit Fields",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "89df6a99-97f8-43e4-81d6-c75ceb1d5c3b",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "d3530cd610630adc6b979771dcc39a10c8720cabe4b55e837075728c41d22375"
+  },
+  "nodeGroups": [],
+  "id": "7ZMYfqFw3wwRyyaV",
+  "tags": []
+}
