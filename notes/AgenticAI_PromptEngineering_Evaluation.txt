@@ -1,0 +1,54 @@
+Agentic AI B2 | Prompt Engineering & evaluation | 27-06-2026
+
+=================================================================================================================
+Links:
+
+https://colab.research.google.com/drive/1F66BurDVV35d8sTfUALghGVd6UchA_iL?usp=sharing
+
+https://colab.research.google.com/github/rchirutkar/AgenticAI/blob/main/Agentic_AI_Day1_Resource_Notebook_1.ipynb
+
+https://colab.research.google.com/drive/1n5Y2jhCrxMklXOF1Or-hS2zB05Sh2ofR?usp=sharing
+
+https://aistudio.google.com/api-keys  <- Use this to generate your API key
+<AQ.Ab8RxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxS0w>  
+
+HarveyAI
+
+https://notebooklm.google/
+
+https://forms.gle/zLJPieKMXrQ5qSWF7
+
+https://docs.google.com/spreadsheets/d/1OHtoBGOZQ1RFCZpZilkbPOmElV36sjt2KhfdSgsR33w/edit?usp=sharing
+
+
+Excel sheet with Case study with n8n
+https://docs.google.com/spreadsheets/d/1Y450CzzstwmuDTUMABnP9WcPEdkr6KJwZCfJ5Cayorg/edit?usp=sharing
+=================================================================================================================
+Notes:
+
+Reading backing query using n8n and run AI model for the customer query
+
+rchirutkar786 => Rchirutkar@786
+https://rchirutkar786.app.n8n.cloud/workflow/D9lMNu6NYiUQm2pz
+
+n8n -> create workflow -> add -> google sheet -> get rows in a sheet -> login to google -> select excel file -> select sheet -> done
+					   -> loop -> batch = 1 => replace me -> add search -> AI node -> google gemini -> message a model -> configure api key -> select gemini-3-flash-preview
+					   -> use expression instead of fixed -> use variable inside like """ <variable> """
+		system promt   -> use options to use system message
+to update the sheet	   -> add google sheet -> operation update a row in sheet -> map each column manually -> column to match = ID -> add output value -> excecute
+to done 			   -> add edit field -> 
+
+
+=================================================================================================================
+FAQS:
+
+
+=================================================================================================================
+Assignments:
+Try doing some changes to prompt and check the accuracy on excel sheet. On N8N. Keep making it better and keep evaluating.
+Try to run in batches to run complete task in short time for bulk queries. 
+
+=================================================================================================================
+Extras:
+
+=================================================================================================================

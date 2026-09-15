@@ -1,0 +1,63 @@
+Agentic AI B2 | Discussion on Tools
+By Jay B. on 11 July 2026
+jay4datascience@gmail.com
+==============================================================================================================
+Links:
+
+https://drive.google.com/drive/folders/1BLb9Mp2jh0kZWxK4OOqo8ImpfD_mV2bo
+
+https://colab.research.google.com/drive/1DpCYivm0cNQMcxJk4sKhuXR0HUGjTKDp
+
+https://blog.dailydoseofds.com/p/the-mcp-illustrated-guidebook
+
+https://learn.deeplearning.ai/courses/agentic-ai/lesson/vtzr2m1/module-4-quiz
+
+==============================================================================================================
+Notes:
+
+Tools :
+
+What access agent have to excecute the operation.
+It consist of Web, DB, Apps which can do the task.
+
+SERP API: 
+SerpApi (Search Engine Results API) is a managed web service that extracts real-time search engine data and returns it in clean, structured JSON format. It eliminates the need for developers to build or maintain custom web scrapers, proxy networks, or CAPTCHA-solving infrastructure.
+
+Tavily Search:
+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
+It is uses To WebScrapping.
+So we use Tavily to do the webscrapping for Agents.
+
+Groq API:
+<gsk_SL3xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxGsFc>  
+Groq is an AI hardware and software company famous for delivering the fastest AI text generation in the industry. Instead of standard GPUs, Groq uses a custom-designed processing chip called an LPU (Language Processing Unit), which processes requests in milliseconds rather than seconds.
+
+OpenAI API:
+
+Pydantic Check:
+
+Reflection:
+what is more relevant to a query?
+
+Async:
+run query in parallel, compare time with sequensial
+
+
+
+==============================================================================================================
+FAQs
+
+==============================================================================================================
+Assignment
+
+Capstone1:
+
+Live news aggregator:
+
+Build a small pipeline
+
+topic data allocation -> query variant -> live tavily searches -> deduplication -> receiver LLM -> digest
+
+Reviewer matter because real result are messy.
+
+This is good for research.

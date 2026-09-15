@@ -1,0 +1,62 @@
+Agentic AI - RAG
+on 20-Jun-2026 by Nishant Trivedi
+
+=================================================================================================================
+
+https://aistudio.google.com/api-keys
+
+MyKeys: <AIzxxxxxxT-qxxxxxp_yxxxxxxxxxxx8U>  
+
+Nishant key: <google api key>
+			 
+N8N:
+https://rchirutkar786.app.n8n.cloud/workflow/D9lMNu6NYiUQm2pz
+=================================================================================================================
+
+
+Pinecone - vector Database stores equivalent embading representation of the text of the the real data
+	pinecone.io
+	default: pcsk_29F7ks_JzUyhN1QTmzMoLHxxbWePZBRE9dSoqMrXuXKNNRF9ssXVKQpWAPfEzYL21DF3pC
+qdrant - another vector database
+n8n - Agentic workflow setup
+gemini - vertex 
+	Gemini API key: <AQ.Ab8xxx6J_SBdfxxxxxxxxxxxxxxxxxxxxxaD-Aktxxxx5KYQ>
+	3072 embading size represent token, so we use same length of the vector. Larger dimensions require more storage.
+	pinecode provide embading for saving vector to used by gemini
+
+
+ADC - for local LLMs
+
+------------------------------------------------------------------------------------------------------------------
+
+1) n8n a/c - rchirutkar786 => Rchirutkar@786
+
+2) pinecone API key
+
+3) gemini API key (use Nishant's if not)
+
+4) Download the novel
+
+Gemini key -> to use LLM, 
+Pineoone API -> to use vector DB
+------------------------------------------------------------------------------------------------------------------
+
+Workflow -> Add first step -> Search for form -> n8n form -> trigger -> on new n8n form event -> add form element -> type = file -> excecute -> upload a file
+
++ -> pinecone vector store -> add document to vector store -> Operation mode = Insert document -> credentials -> pinecone API -> Pinecone Index = https://herovired-index-1sdimxy.svc.aped-4627-b74a.pinecone.io -> select index -> Embadding batch size = 200
+
++ Embadding -> Gemini Embadding -> Credentials -> gemini PaLM API -> model = gemini-embadding-001
+
++ Document-> Defalut data -> type of data = binary -> load all i/p data -> text sampling = simple / custom -> 
+
++ Chat event - trigger new chat -> open chat 
+
++ AI -> AI agent  -> chat model -> gemini -> gemini3.1-flash model -> then 
++ tool -> pinecone vector tool -> retrive document -> index = 3072 -> limit =10(top 10 chunks)
++ embadding-001 -> done
+
+
+
+===========================
+what is embading?
+it is creation of sequece of numbers from text or image.
