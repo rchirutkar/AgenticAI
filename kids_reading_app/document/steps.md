@@ -1,0 +1,3 @@
+1. Launching Code: If you use VS Code, you can type `code .` inside your project directory to open it seamlessly from WSL into Windows.
+2. Running the App: When you run `streamlit run app.py`, Streamlit will give you a local network URL (like `http://localhost:8501`). Windows will automatically route this, so you can just open that link in your normal Windows browser (Chrome, Edge, etc.).
+3. Deactivating: When you are done working, you can close the environment by simply typing `deactivate`.
