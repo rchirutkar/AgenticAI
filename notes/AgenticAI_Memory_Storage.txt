@@ -1,0 +1,75 @@
+Agentic AI B2 | Memory – Vector Dbs, Persistent Storage | 18th July
+By Jayantilal Bhanushali
+Course: Introduction to Agentic AI
+
+==================================================================================================================
+Links:
+
+Documents and python scripts
+https://drive.google.com/drive/folders/1Ci6JPtmZ5LC8ayhhLxkZby0CYqhcR1BQ
+
+https://www.youtube.com/watch?v=Jekzc6BM5_w
+
+https://drive.google.com/file/d/1N9GCXdtwjbT1jzL4vwtVHueH2nZyJPHM/view?usp=sharing
+
+
+https://www.youtube.com/watch?v=O2gerCxEXvc
+Code Basics,
+Krish Naik
+These channels on youtube will helpyou with interview questions
+
+
+==================================================================================================================
+Notes:
+
+Memory is need to get the context back to conversation otherwise it will be bad support.
+Memory have two types:
+1. Episodic Memory - only 10 messages in chat. Small and recent like chat messages.
+2. Short term Memory - compressed summary of the pressent chat session. Compact and durable like session memory.
+3. Long term Memory(RAG)
+4. Operational Data(Memory) - in DB available which is changing
+
+This memory is limited because of LLM contextual limitation.
+
+Rolling Window:
+Recency Rolling window - Clear old chat and 
+
+Dialog = question and answer 
+Message = question or answer
+
+We have limit on messages for the chat conversation.
+
+
+==================================================================================================================
+FAQS:
+
+I want to build an automated agent workflow with the following spec:
+
+Trigger: Triggers upon assignment of a case in a ticketing/CRM platform.
+Action 1 (Research): Uses Claude (via API/Skills) to ingest the case ID and description, perform automated research, and complete an investigation report.
+Action 2 (Storage): Generates a Google Doc containing the complete investigation findings.
+Action 3 (Completion Email): Emails me back via Gmail with a summary and the Google Doc link.
+
+Ans:
+Stack needed:
+FASTAPI
+Flask
+JINJA2
+
+Role needed:
+MLOPS
+LLMOPS
+==================================================================================================================
+Assignments:
+
+Chatbot for the HR as HRChatbot. To answer some hr related questions like Leaves, Paid, Promotion.
+
+==================================================================================================================
+Extras:
+
+
+
+Hi Jay,
+I have interview in coming week for the role of AI Role, they may cover Langchain, LangGraphs and Langsmith, AI/ML.
+GenAI, Agentic AI, Workflows.
+Could you plesae guide me for the preparation ? or share your thoughts?

@@ -1,0 +1,85 @@
+Agentic AI: Prompt Tuning and Agentic Frameworks
+
+LinkedIn: https://www.linkedin.com/in/jay4datascience/ 
+email: jay4datascience@gmail.com
+
+===============================================================================
+Links:
+
+https://www.docker.com/
+
+LLM document:
+https://arxiv.org/abs/1706.03762
+https://jalammar.github.io/illustrated-transformer/
+https://poloclub.github.io/transformer-explainer/
+
+===============================================================================
+Notes:
+
+Docker Installation
+in case as a alternative use n8n.
+
+Run CMD as Administrator and run the command;
+
+wsl --install
+
+Enable Windows Subsystem for Linux:
+Use below Command to enable Windows Subsystem Linux run in PowerShell as Administrator:
+>> dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+pull the n8nio/n8n:latest
+
+To Run use Optional settings:
+host port: 5678
+Volume -> Host path: D:\Study\AgenticAI\Docker
+		  Container path: /home/node/.n8n
+Run -> open the link http://localhost:5678
+
+6!rD28s!jnDn7YP - reset it now
+
+
+==
+
+Go to https://console.cloud.google.com/
+
+https://console.cloud.google.com/
+
+Search for Credentials in the top Search bar
+
+Click on + Create Credentials on the top bar
+
+Click on OAuth Client ID
+
+Application Type = Web Application
+
+
+In the Authorized redirect URIs, paste http://localhost:5678/rest/oauth2-credential/callback
+
+Click Create
+
+
+Create credentials in Console.cloude.google.com/ -> create credentials -> Oauth Client ID -> Application type = web application 
+
+-------------------
+
+to Configure the excel credentials inside n8n
+http://localhost:5678/rest/oauth2-credential/callback
+
+Client ID: 372057821980-m5l60nj4thpgp2tsuo3e18v68futq179.apps.googleusercontent.com
+
+Enable google credentials and add test user email then again enable with same email.
+
+
+
+
+
+===============================================================================
+FAQS:
+
+===============================================================================
+Assignments:
+
+
+===============================================================================
+Extras:
+

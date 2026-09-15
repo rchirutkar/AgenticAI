@@ -1,0 +1,17 @@
+Upload & Profile — User uploads CSV/Excel → parsed into a DataFrame → schema, dtypes, and a row sample extracted (never the full dataset).
+
+Query Input — User types a natural-language question.
+
+Intent Classification (Gemini call #1) — Returns structured JSON: intent type, output type (text/chart/both), chart type, relevant columns.
+
+Code Generation (Gemini call #2) — Produces a short pandas/plotly snippet against df, based on schema + intent.
+
+Sandboxed Execution — Runs the snippet in a restricted namespace (no file/OS access). On error → traceback fed back to step 4, retried up to N times.
+
+Review (Gemini call #3) — Checks the output against the query for correctness, sanity, and chart appropriateness → pass/fail + suggested fix. On fail → back to step 4 with the fix as context, retried up to N times.
+
+Format & Display — Numeric/text result phrased as a natural sentence; chart (if any) rendered via st.plotly_chart; generated code shown in an expander.
+
+
+
+

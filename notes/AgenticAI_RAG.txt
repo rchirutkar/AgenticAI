@@ -1,0 +1,67 @@
+Agentic AI B2 | RAG Details - Exploration and explanation of Vector DBs; Filtering + Embedding using qDrant | 19th July
+By Jayantilal Bhanushali
+Course: Introduction to Agentic AI
+jay4datascience@gmail.com
+
+=============================================================================================================
+Links:
+
+https://text-chunking-visualizer.streamlit.app/
+
+https://drive.google.com/file/d/1P9w6ByXut1Et1UA6tXn5ANdYqT_fmFJs/view?usp=sharing
+
+=============================================================================================================
+
+RAG - Retrieval Augmented Generation:
+What is Retrieval-Augmented Generation? Retrieval-Augmented Generation (RAG) is the process of optimizing the output of a large language model, so it references an authoritative knowledge base outside of its training data sources before generating a response.
+
+It have following components: 
+
+Custom Knowledge Base: It holds every document that we have to save and keep in persistant storage as permanant memory like pdf, docx, csvs, any code files ...
+
+Metadata: it is the information related to the document and text chunks 
+
+Text Chuncking: Divide large text para into smaller lines
+
+Embadings model: Convert large language text into numbers arryay, depending on model. each model is diff, the longer the size bettter the performace but increase the cost.
+
+Vector DB: alfa, croma db, ingenious, pgvector. It stores index, metadata, embedding along with text chunking.
+
+Above component are part of Augmented generation process.
+
+---------------------
+
+How it works?
+
+Using some distace algo it will find the minimum chunk closser to the query from vector DB and generates a score. This is called Augmented.
+Some Algo called as ANN (Aproximate Nearest Neighbour) search the context in DB which are more than similar to score generated. This is called Retrieval.
+When the context is matched and answer is ready then it goes to LLM and it generate the response to user. It is called Generation.
+
+Second time the Augmented will not repeat and Retrieval and Generation will be done as many times the user ask question.
+When we update the document, then only we have to run Augment again. 
+
+---------------------
+
+we use tokenization to standardize along with regex.
+
+We are using custom algo to generate embedding from text to vector.
+
+we are chunk of 90 with overlap of 20. Recursive character 
+
+we are using cosin_similarity algorith for calculating closest path for matching the embedding
+
+
+=============================================================================================================
+FAQs:
+
+Use case ?
+Chatbots for personized database, HR operations, any codebase. 
+We can use n8n and cupin, but for enterprise level it have limitations, it is good for prototyping, pocs but not for deployments. it can not scale to bigger scopes. So we have python. 
+
+=============================================================================================================
+Assigment:
+
+
+=============================================================================================================
+Extras:
+

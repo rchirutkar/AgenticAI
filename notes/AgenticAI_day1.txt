@@ -1,0 +1,84 @@
+Agentic AI by Nishant Trivedi on 13-Jun-2026
+
+https://colab.research.google.com/drive/1d9VDugO9ctRNZQTOl4TvNVPkOYeD0hSy?usp=sharing
+
+https://bbycroft.net/llm
+
+https://platform.openai.com/tokenizer
+
+==================================================================================================================
+Notes:
+
+Q. What is LLM?
+	it is knows everything like brain, but without tools to reach to execute and without memory.
+
+Q. What is agent?
+	to make LLM to become agent what it need?
+	1. objective
+	2. tool to achieve the objective
+	3. need feedback to validate objective
+	4. memory to remember the loop of feedbacks
+	5. thats it
+
+
+A Quick Example to 
+
+Just the LLM: You ask a chatbot, "What is the weather in Tokyo?" The LLM might say, "I don't know the live weather because my training data cut off in 2025."
+
+The AI Agent: You ask the agent the same question. The agent uses the LLM to understand the request, realizes it needs live data, autonomously opens a weather API tool, fetches the current temperature, and reports it back to you.
+
+Q. What is memory?
+
+1. In Contect (Short-term)
+2. External (Long-term) 
+
+
+A LLM should be given only the info it needs and no info it does not need.
+
+
+are we going to learn how to protect the secrets, API keys and confidential data before using Agents?
+
+
+
+THe LLM uses Transformer Architecture to understand input then it uses key to understand what Human input and predicts the next word.
+
+Transformer uses key value pair to lookup the highest propable output.
+
+
+We have to use data filtering and test with SLM distilation before going for LLM. check secure information.
+
+
+==================================================================================================================
+FAQS:
+
+Diff between agent and rps?
+Robotic Process Automation (RPA) and AI Agents solve different problems. RPA rigidly follows predefined, step-by-step scripts for repetitive, rule-based tasks. AI Agents use Large Language Models (LLMs) to reason, learn, and make autonomous decisions to achieve higher-level goals.
+
+Key Differences at a Glance
+Feature										RPA (Robotic Process Automation)										AI Agent
+Core Mechanism							Scripted execution (If X, then Y).											Cognitive reasoning, planning, and learning.
+Data Handled							Strictly structured data (e.g., spreadsheets, forms).						Handles unstructured data (e.g., emails, PDFs, audio).
+Flexibility								Brittle; breaks immediately if a user interface (UI) layout changes.		Self-correcting; navigates unexpected UI changes or missing data.
+Problem Type							Automates specific tasks.													Orchestrates outcomes.
+
+When to Use RPA
+RPA is a digital "macro recorder" that faithfully repeats human clicks and keystrokes. It is ideal for:
+	Legacy Systems: Processes involving older software that lacks modern APIs.
+	High-Volume Data Entry: Routine invoice processing, form filling, and standard report generation.
+	Strict Compliance: Workflows where the exact same path must be followed every single time with an auditable trail.
+
+When to Use AI Agents
+AI Agents act more like intelligent digital coworkers. Rather than writing the specific steps, you give the agent an objective (e.g., "Review this contract and flag deviations"). They are ideal for:
+	Ambiguous Workflows: Tasks that require subjective judgment, such as drafting personalized email responses or screening resumes.
+	Cross-System Orchestration: Reading unstructured data from multiple sources (like a complex support ticket), diagnosing the issue, and fixing it across multiple applications.
+	Exception Handling: Tasks where unforeseen events happen that a standard programmed script wouldn't know how to handle.
+
+The Best of Both Worlds
+Most modern enterprises are moving away from an "either/or" mentality and combining the two technologies into Agentic Workflows. The AI Agent acts as the "brain," handling dynamic logic and decision-making, while traditional RPA acts as the "hands," executing the final clicks and data entry in locked-down legacy systems.
+==================================================================================================================
+Assignment:
+
+==================================================================================================================
+Extras:
+
+
